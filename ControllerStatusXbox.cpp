@@ -21,21 +21,25 @@ void ControllerStatusXbox::onLoad()
 					case BATTERY_LEVEL_EMPTY:
 						if (StateOfController != CRITICAL) {
 							StateOfController = CRITICAL;
+							GenerateNotification(CRITICAL);
 						}
 						break;
 					case BATTERY_LEVEL_LOW:
 						if (StateOfController != LOW) {
 							StateOfController = LOW;
+							GenerateNotification(LOW);
 						}
 						break;
 					case BATTERY_LEVEL_MEDIUM:
 						if (StateOfController != MEDIUM) {
 							StateOfController = MEDIUM;
+							GenerateNotification(MEDIUM);
 						}
 						break;
 					case BATTERY_LEVEL_FULL:
 						if (StateOfController != FULL) {
 							StateOfController = FULL;
+							GenerateNotification(FULL);
 						}
 						break;
 				}
@@ -43,6 +47,7 @@ void ControllerStatusXbox::onLoad()
 		} else {
 			if (StateOfController != DISCONNECTED) {
 				StateOfController = DISCONNECTED;
+				GenerateNotification(DISCONNECTED);
 			}
 		}
 	});
